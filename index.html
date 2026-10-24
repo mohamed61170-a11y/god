@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#103c2e">
+<title>آيات الاستغفار والرزق | سورة نوح</title>
+<meta name="description" content="استمع إلى آيات سورة نوح من الآية 10 إلى 12، وتدبر معاني الاستغفار والرزق.">
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Tahoma, Arial, sans-serif;
+  color: #fff8e6;
+  background: linear-gradient(145deg, #071d17, #14513b, #09251d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+main {
+  width: 100%;
+  max-width: 720px;
+  text-align: center;
+  padding: 28px 20px;
+  border: 1px solid #c8a85d;
+  border-radius: 24px;
+  background: rgba(0,0,0,.18);
+  box-shadow: 0 10px 35px #0005;
+}
+.ornament { color: #e6c77e; font-size: 28px; }
+h1 { color: #f0d58e; font-size: 27px; }
+.verse {
+  font-size: clamp(23px, 5vw, 34px);
+  line-height: 2.1;
+  margin: 22px 0;
+}
+.reference { color: #f0d58e; }
+button {
+  border: 0;
+  border-radius: 40px;
+  padding: 15px 25px;
+  margin: 8px 4px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+#play { background: #e7c879; color: #103c2e; }
+#stop { background: #fff8e6; color: #103c2e; }
+#status { min-height: 25px; font-size: 14px; }
+footer { margin-top: 25px; color: #e6d6ac; line-height: 2; }
+</style>
+</head>
+<body>
+<main>
+  <div class="ornament">۞ ﷽ ۞</div>
+  <h1>آيات الاستغفار والرزق</h1>
+  <p>أعوذ بالله من الشيطان الرجيم</p>
+
+  <div class="verse">
+    ﴿ فَقُلْتُ اسْتَغْفِرُوا رَبَّكُمْ
+    إِنَّهُ كَانَ غَفَّارًا ﴾
+    <br>
+    ﴿ يُرْسِلِ السَّمَاءَ عَلَيْكُمْ مِدْرَارًا ﴾
+    <br>
+    ﴿ وَيُمْدِدْكُمْ بِأَمْوَالٍ وَبَنِينَ
+    وَيَجْعَلْ لَكُمْ جَنَّاتٍ
+    وَيَجْعَلْ لَكُمْ أَنْهَارًا ﴾
+  </div>
+
+  <p class="reference">سورة نوح — الآيات ١٠ إلى ١٢</p>
+
+  <button id="play" onclick="playAudio()">
+    ▶ استمع إلى الآيات
+  </button>
+  <button id="stop" onclick="stopAudio()">
+    ■ إيقاف الصوت
+  </button>
+
+  <audio id="quran" preload="none" controls
+    style="width:100%; margin-top:15px">
+    <source
+      src="https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/71.mp3"
+      type="audio/mpeg">
+    متصفحك لا يدعم تشغيل الصوت.
+  </audio>
+
+  <p id="status" aria-live="polite">
+    اضغط على زر الاستماع لتشغيل التلاوة.
+  </p>
+
+  <footer>
+    اللهم اغفر لنا وارحمنا وتب علينا إنك أنت التواب الرحيم
+    <br>
+    انشر الخير واحتسب الأجر عند الله
+  </footer>
+</main>
+
+<script>
+const audio = document.getElementById('quran');
+const statusText = document.getElementById('status');
+
+function playAudio() {
+  audio.play().then(() => {
+    statusText.textContent = 'جاري تشغيل التلاوة.';
+  }).catch(() => {
+    statusText.textContent =
+      'تعذر التشغيل. تحقق من الإنترنت واضغط تشغيل من مشغل الصوت.';
+  });
+}
+
+function stopAudio() {
+  audio.pause();
+  audio.currentTime = 0;
+  statusText.textContent = 'تم إيقاف التلاوة.';
+}
+
+audio.addEventListener('ended', () => {
+  statusText.textContent = 'انتهت التلاوة. جزاكم الله خيرًا.';
+});
+</script>
+</body>
+</html>
